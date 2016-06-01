@@ -1,0 +1,24 @@
+{
+  "name": "smoothify",
+  "version": "0.0.1",
+  "description": "Scroll gracefully with your mousewheel",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/homerjam/smoothify"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Homerjam <jameshomer85@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "gsap": "^1.18.5",
+    "hamsterjs": "^1.1.2",
+    "lethargy": "^1.0.4"
+  },
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-preset-es2015": "^6.9.0"
+  }
+}
