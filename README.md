@@ -2,6 +2,12 @@
 
 Scroll gracefully with your mousewheel
 
+### Installation
+
+```
+npm i -D smoothify
+```
+
 ### Usage
 
 ```
