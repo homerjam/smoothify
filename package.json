@@ -1,24 +1,32 @@
 {
   "name": "smoothify",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Scroll gracefully with your mousewheel",
-  "main": "index.js",
+  "main": "dist/smoothify.min.js",
+  "webpack": "smoothify.webpack.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/homerjam/smoothify"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "watchify smoothify.browserify.js -v -d -o dist/smoothify.js -t babelify --presets es2015",
+    "build": "browserify smoothify.browserify.js -v -t babelify --presets es2015 | uglifyjs -cm > dist/smoothify.min.js",
+    "webpack": "webpack -p smoothify.webpack.js dist/smoothify.pkgd.min.js"
   },
   "author": "Homerjam <jameshomer85@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "gsap": "^1.18.5",
-    "hamsterjs": "^1.1.2",
-    "lethargy": "^1.0.4"
+    "hamsterjs": "^1.1.2"
   },
   "devDependencies": {
     "babel": "^6.5.2",
-    "babel-preset-es2015": "^6.9.0"
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babelify": "^7.3.0",
+    "expose-loader": "^0.7.1",
+    "imports-loader": "^0.6.5",
+    "webpack": "^1.13.1"
   }
 }
