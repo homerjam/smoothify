@@ -14,6 +14,7 @@ class Smoothify {
 
     this.scrollY = window.scrollY;
     this.tween = null;
+    this.enabled = true;
 
     this._wheelHandlerFn = this._wheelHandler.bind(this);
     this._scrollHandlerFn = this._scrollHandler.bind(this);
@@ -120,7 +121,23 @@ class Smoothify {
     }
   }
 
+  enable() {
+    this.enabled = true;
+  }
+
+  disable() {
+    if (this.tween && this.tween.isActive()) {
+      this.tween.kill();
+    }
+
+    this.enabled = false;
+  }
+
   scroll(deltaY) {
+    if (!this.enabled) {
+      return;
+    }
+
     this.scrollY -= deltaY * this.stepSize;
 
     const documentHeight = this._getDocumentHeight();
