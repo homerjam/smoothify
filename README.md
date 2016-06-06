@@ -2,6 +2,10 @@
 
 Scroll gracefully with your mousewheel
 
+### Demo
+
+http://homerjam.github.io/smoothify/
+
 ### Installation
 
 ```
