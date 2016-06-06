@@ -7,10 +7,11 @@ const DELTA_DIVISOR = 4;
 const deltaBuffer = [DELTA_DIVISOR, DELTA_DIVISOR, DELTA_DIVISOR];
 
 class Smoothify {
-  constructor(stepDuration = 1, stepSize = 100, wheelThrottle = 300) {
+  constructor(stepDuration = 1, stepSize = 100, wheelThrottle = 300, easingMethod = 'Power3.easeOut') {
     this.stepDuration = stepDuration;
     this.stepSize = stepSize;
     this.wheelThrottle = wheelThrottle;
+    this.easingMethod = easingMethod;
 
     this.scrollY = window.scrollY;
     this.tween = null;
@@ -146,7 +147,12 @@ class Smoothify {
     this.scrollY = this.scrollY > documentHeight - window.innerHeight ?
       documentHeight - window.innerHeight : this.scrollY;
 
-    const tweenProps = { scrollTo: { y: this.scrollY } };
+    const tweenProps = {
+      scrollTo: {
+        y: this.scrollY,
+      },
+      ease: this.easingMethod,
+    };
 
     if (this.tween && this.tween.isActive()) {
       this.tween.updateTo(tweenProps, true);

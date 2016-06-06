@@ -1,6 +1,6 @@
 {
   "name": "smoothify",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Scroll gracefully with your mousewheel",
   "main": "dist/smoothify.min.js",
   "webpack": "smoothify.webpack.js",
